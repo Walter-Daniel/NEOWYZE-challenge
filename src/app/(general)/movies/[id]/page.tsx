@@ -1,6 +1,8 @@
 import { getMovieByID } from '@/helpers/movieFetcher';
 import Image from 'next/image';
 import swmovieIMG from '@/assets/image/swmovie.jpg'
+import { CharacterList } from '@/components';
+import { Movie } from '@/interfaces/movieInterfaces';
 
 interface ParamsProps {
     params: {
@@ -9,7 +11,7 @@ interface ParamsProps {
 }
 
 export default async function MovisePage({params}:ParamsProps) {
-  const movie = await getMovieByID(params.id)
+  const movie:Movie = await getMovieByID(params.id);
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
       <section>
@@ -27,13 +29,13 @@ export default async function MovisePage({params}:ParamsProps) {
         <p className=''>Directed by {movie.director}</p>
         <p className='f'>Characters:</p>
         {/* Characters List */}
-        <ul>
+        <div className='flex flex-wrap pr-2 pt-4'>
           {
             movie.characters.map((character, index) => (
-              <li key={index}>{character}</li>
+              <CharacterList key={index} url={character}/>
             ))
           }
-        </ul>
+        </div>
       </section>
     </div>
   );
