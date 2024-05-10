@@ -1,6 +1,6 @@
 
 export default function Home() {
   return (
-    <h1>Hola</h1>
+    <h2 className="font-jedi text-7xl">Movies</h2>
   );
 }
