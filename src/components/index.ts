@@ -1,3 +1,5 @@
+export { CardCharacter } from './CardCharacter';
+
 export { CharacterList } from './CharacterList';
 
-export { Card } from './Card';
+export { Card } from './CardMovie';
