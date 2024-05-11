@@ -25,7 +25,7 @@ export const CharacterList: React.FC<CharacterListProps> = async({url}) => {
       </div>
       <div className='flex flex-col'>
         <small className='py-1  truncate'>{character.name}</small>
-        <Link href={url} className='bg-yellow-400 rounded-md p-1 text-center text-black'>ir</Link>
+        <Link href={`/characters/${id}`} className='bg-yellow-400 rounded-md p-1 text-center text-black'>Read more</Link>
       </div>
     </div>
   )
