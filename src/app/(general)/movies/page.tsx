@@ -11,7 +11,7 @@ export default async function MoviesPage() {
       <div className="flex items-center justify-center flex-wrap min-h-screen">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {
-          movies.sort((a, b) => (a.episode_id - b.episode_id)).map((movie, index) => (
+          movies.map((movie, index) => (
                 <Card {...movie} key={index}/>
           ))
         }
