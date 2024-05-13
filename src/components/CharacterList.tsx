@@ -1,5 +1,5 @@
 import { getCharacterByID } from '@/helpers/characterFetcher';
-import { isCharacter } from '@/helpers/isCharacter';
+import { getId } from '@/helpers/getId';
 import characterIMG from '@/assets/image/stormtrooper.webp'
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,7 +9,7 @@ interface CharacterListProps {
 }
 
 export const CharacterList: React.FC<CharacterListProps> = async({url}) => {
-  const id = isCharacter(url)
+  const id = getId(url)
   if(!id) return <p>Error al encontrar personajes</p>
   const character = await getCharacterByID(id)
   return (
