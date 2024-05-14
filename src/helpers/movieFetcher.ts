@@ -11,7 +11,7 @@ export const getMovies = async():Promise<Movies[]> => {
         return results
        
     } catch (error) {
-        throw new Error('Failed to fetch moviesaaaa');
+        throw new Error('Failed to fetch movies');
     }
 }
 
@@ -20,12 +20,12 @@ export const getMovieByID = async(id:string):Promise<Movie> => {
 
        const response: Response =  await fetch(`https://swapi.dev/api/films/${id}`);
        if (!response.ok) {
-        throw new Error('Failed to fetch movies');
+        throw new Error('Failed to fetch movie');
         }
         const movie: Movie = await response.json();
         return movie;
        
     } catch (error) {
-        throw new Error('Failed to fetch moviesaaaa');
+        throw new Error('Movie not found');
     }
 }
