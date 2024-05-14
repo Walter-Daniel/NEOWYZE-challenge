@@ -1,3 +1,5 @@
+export { Pagination } from './Pagination';
+
 export { CardCharacter } from './CardCharacter';
 
 export { CharacterList } from './CharacterList';
