@@ -15,15 +15,14 @@ interface SeverParams {
   }
 }
 export default async function CharactersPage({searchParams}:SeverParams) {
-  let currentPage = 1; // Valor predeterminado en caso de que currentPage esté vacío
+  let currentPage = 1; 
 
   if (searchParams.page && !isNaN(Number(searchParams.page))) {
     currentPage = Number(searchParams.page);
   }
 
   const response = await getCharacters(currentPage);
-  // if(!response) return <p>Error</p>
-  const { count, next, previous, results } = response;
+  const { count, results } = response;
   const totalPages = Math.ceil(count/10)
 
   return (
