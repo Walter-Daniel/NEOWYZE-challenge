@@ -1,3 +1,4 @@
+import { Navbar } from '@/components';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -11,8 +12,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className='container mx-auto px-5'>
-     {children}
-    </div>
+    <>
+      <Navbar />
+      <div className='container mx-auto px-5'>
+      {children}
+      </div>
+    </>
   );
 }
