@@ -14,7 +14,7 @@ export default async function CharacterPage({params}:ParamsProps) {
   const charactersFiltered = charactersToFilter(character)
 
   return (
-    <div className='grid grid-cols-1 md:grid-cols-12 gap-6 '>
+    <div className='grid grid-cols-1 md:grid-cols-12 gap-6 md:min-h-[90vh]'>
       <section className='md:col-span-5 md:pt-7 flex justify-center md:h-[80vh]'>
         <Image
           height={800}

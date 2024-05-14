@@ -1,4 +1,4 @@
-import { Navbar } from '@/components';
+import { Footer, Navbar } from '@/components';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -17,6 +17,7 @@ export default function RootLayout({
       <div className='container mx-auto px-5'>
       {children}
       </div>
+      <Footer />
     </>
   );
 }
