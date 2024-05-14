@@ -1,17 +1,19 @@
 import { Character, CharacterResponse } from '@/interfaces/characterInterfaces';
 
-export const getCharacters = async():Promise<Character[]> => {
+
+export const getCharacters = async(page:number = 1):Promise<CharacterResponse> => {
     try {
 
-       const response: Response =  await fetch('https://swapi.dev/api/people');
+       const response: Response =  await fetch(`https://swapi.dev/api/people/?page=${page}`);
        if (!response.ok) {
         throw new Error('Failed to fetch characters');
         }
-        const {results}: CharacterResponse = await response.json();
-        return results
+        const characterResponse: CharacterResponse = await response.json();
+        return characterResponse;
        
     } catch (error) {
-        return []
+        console.log(error);
+        throw new Error('Failed to fetch characters')
     }
 }
 
