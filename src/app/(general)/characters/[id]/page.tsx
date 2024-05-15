@@ -6,6 +6,7 @@ import { charactersToFilter } from '@/helpers/charactersFiltered';
 import { Character } from '@/interfaces/characterInterfaces';
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
+import { Skeleton } from '@/components';
 
 export default function CharacterPage() {
 
@@ -44,13 +45,21 @@ export default function CharacterPage() {
         />
       </section>
       <section className='md:col-span-7'>
-        <h2 className='font-jedi text-5xl md:pt-5 pb-2 text-yellow-300'>{character?.name}</h2>
-        {character?.eye_color && <p>Eye color: {character?.eye_color}</p>}
-        {character?.birth_year && <p>Birth year: {character?.birth_year}</p>}
-        {character?.hair_color && <p>Hair color: {character?.hair_color}</p>}
-        {character?.height && <p>Height: {character?.height}</p>}
-        {character?.skin_color && <p>Skin color: {character?.skin_color}</p>}
-        {character?.mass && <p>Mass: {character?.mass}</p>}
+      {
+        loading ? (
+          <Skeleton />
+        ):(
+          <>
+            <h2 className='font-jedi text-5xl md:pt-5 pb-2 text-yellow-300'>{character?.name}</h2>
+            {character?.eye_color && <p>Eye color: {character?.eye_color}</p>}
+            {character?.birth_year && <p>Birth year: {character?.birth_year}</p>}
+            {character?.hair_color && <p>Hair color: {character?.hair_color}</p>}
+            {character?.height && <p>Height: {character?.height}</p>}
+            {character?.skin_color && <p>Skin color: {character?.skin_color}</p>}
+            {character?.mass && <p>Mass: {character?.mass}</p>}
+          </>
+        )
+      }
       </section>
     </div>
   );

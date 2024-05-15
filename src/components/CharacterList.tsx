@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Character } from '@/interfaces/characterInterfaces';
 import { useEffect, useState } from 'react';
+import { CardListSkeleton, Skeleton } from './Skeleton';
 
 interface CharacterListProps {
   url: string;
@@ -35,7 +36,13 @@ export const CharacterList: React.FC<CharacterListProps> = ({url}) => {
 
   return (
     <div className='h-[150px] w-[130px] m-2 flex flex-col bg-stone-800 justify-center p-2 transition-all ease-in-out duration-500 border border-transparent hover:border-white hover:bg-stone-700'>
-      <div className='flex justify-center'>
+      {
+      loading ? (
+          <CardListSkeleton />
+      ):(
+        <>
+        
+        <div className='flex justify-center'>
       <Image 
         src={characterIMG}
         alt="Character image"
@@ -48,6 +55,10 @@ export const CharacterList: React.FC<CharacterListProps> = ({url}) => {
         <small className='py-1 truncate'>{character?.name}</small>
         <Link href={`/characters/${id}`} className='bg-yellow-400 rounded-md p-1 text-center text-black'>Read more</Link>
       </div>
+        </>
+      )
+    }
+      
     </div>
   )
 }
