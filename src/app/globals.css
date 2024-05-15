@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Jedi';
+  src: url('../assets/fonts/Starjedi.ttf') format('truetype');
+}
+
+@keyframes parallaxBackground {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -50px -50px;
+  }
+}
+
+.animated-parallax {
+  animation: parallaxBackground 10s linear infinite alternate;
+}
