@@ -1,4 +1,3 @@
-import { getMovieByID } from '@/helpers/movieFetcher';
 import Image from 'next/image';
 import swmovieIMG from '@/assets/image/swmovie.jpg'
 import { CharacterList } from '@/components';
@@ -11,7 +10,8 @@ interface ParamsProps {
 }
 
 export default async function MoviesPage({params}:ParamsProps) {
-  const movie:Movie = await getMovieByID(params.id);
+  const MovieResponse = await fetch(`http://localhost:3000/api/movies/${params.id}`);
+  const movie:Movie = await MovieResponse.json();
   return (
     <div className='grid grid-cols-1 md:grid-cols-12 gap-6'>
       <section className='md:col-span-5 md:pt-7'>

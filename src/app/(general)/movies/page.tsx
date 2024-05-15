@@ -1,9 +1,11 @@
 import { Card } from '@/components';
-import { getMovies } from '@/helpers/movieFetcher';
+import { Movies } from '@/interfaces/movieInterfaces';
 
 export default async function MoviesPage() {
 
-  const movies = await getMovies();
+  const fecthMovies = await fetch('http://localhost:3000/api/movies');
+  const moviesResponse = await fecthMovies.json();
+  const movies:Movies[] = moviesResponse.data
 
   return (
     <div className='pb-4'>

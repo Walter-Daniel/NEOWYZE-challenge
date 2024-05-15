@@ -1,5 +1,6 @@
 import { Footer, Navbar } from '@/components';
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: "Movies",
@@ -14,9 +15,11 @@ export default function RootLayout({
   return (
     <>
       <Navbar />
-      <div className='container mx-auto px-5'>
-      {children}
-      </div>
+        <div className='container mx-auto px-5'>
+          <Suspense>
+            {children}
+          </Suspense>
+        </div>
       <Footer />
     </>
   );
